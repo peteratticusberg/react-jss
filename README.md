@@ -15,11 +15,11 @@ The benefits are:
 - Critical CSS extraction.
 - Lazy evaluation - sheet is created only when component will mount.
 - Auto attach/detach - sheet will be rendered to the DOM when component is about to mount and will be removed when no element needs it.
-- A Style Sheet gets shared between all elements.
+- Style Sheets gets shared between all elements.
 
 ## Table of Contents
 
-* [Install](#install)
+* [Installation](#install)
 * [Usage](#usage)
   * [Basic](#basic)
   * [Theming](#theming)
@@ -31,7 +31,7 @@ The benefits are:
 * [Contributing](#contributing)
 * [License](#license)
 
-## Install
+## Installation
 
 ```
 npm install --save react-jss
@@ -39,12 +39,11 @@ npm install --save react-jss
 
 ## Usage
 
-React-JSS wraps your component with an [higher-order component](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750).
-It injects `classes` prop, which is a simple map of rule names and generated class names. It can act both as a simple wrapping function and as a [ES7 decorator](https://github.com/wycats/javascript-decorators)
+React-JSS provides a [higher-order component](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) that injects a `classes` prop, which is a simple map of class name to generated class name. It can act both as a simple wrapping function and as a [ES7 decorator](https://github.com/wycats/javascript-decorators)
 
 ### Example
 
-Try it out on [playground](https://codesandbox.io/s/j3l06yyqpw).
+Try it out on this [playground](https://codesandbox.io/s/j3l06yyqpw).
 
 ```javascript
 import React from 'react'
@@ -72,9 +71,9 @@ export default injectSheet(styles)(Button)
 
 ### Theming
 
-The idea is that you define theme, wrap your application with `ThemeProvider` and pass the `theme` to `ThemeProvider`. ThemeProvider will pass it over `context` to your styles creator function and to your props. After that you may change your theme, and all your components will get new theme automatically.
+JSS allows you to a define a them and expose to your componentes using a `ThemeProvider` which passes that theme via context to its children. Any real time updates to your theme are propogated to your child components automatically. 
 
-Under the hood `react-jss` uses unified CSSinJS `theming` solution for React. You can find [detailed docs in its repo](https://github.com/iamstarkov/theming).
+Under the hood `react-jss` uses a unified CSSinJS [theming](https://github.com/iamstarkov/theming) solution for React. See the [theming repo](https://github.com/iamstarkov/theming) for more information.
 
 Using `ThemeProvider`:
 
